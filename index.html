@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soumyadip Dutta — Electrical Engineering @ NIT Durgapur</title>
+  <meta name="description" content="Portfolio of Soumyadip Dutta — Electrical Engineering undergraduate at NIT Durgapur working on RTL/FPGA design, embedded systems, PCB layout, robotics, and simulation." />
+  <meta property="og:title" content="Soumyadip Dutta" />
+  <meta property="og:description" content="Electrical Engineering undergraduate at NIT Durgapur — RTL/FPGA, embedded systems, PCB design, robotics, and simulation." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #16161f;
+      --accent: #7c6df0;
+      --accent2: #a89cf5;
+      --text: #e8e8f0;
+      --muted: #7a7a9a;
+      --border: rgba(124, 109, 240, 0.18);
+      --card: #13131c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 2.5rem;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--accent2);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+      line-height: 1.2;
+    }
+
+    /* ── HERO ── */
+    #intro {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 5rem;
+      padding-bottom: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      background-image: radial-gradient(circle, rgba(124, 109, 240, 0.15) 1px, transparent 1px);
+      background-size: 28px 28px;
+      background-position: -14px -14px;
+    }
+
+    .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      margin-bottom: 1.5rem;
+      background: var(--card);
+    }
+
+    .hero-name {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero-name span {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, #c9bffa 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-tagline {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1.5px solid var(--accent);
+    }
+    .btn-primary:hover { background: var(--accent2); border-color: var(--accent2); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent2); transform: translateY(-2px); }
+
+    .hero-scroll {
+      margin-top: 4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-family: 'Space Mono', monospace;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--muted);
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 1px;
+      background: var(--accent2);
+      animation: scrollLine 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+
+    .about-text p strong { color: var(--text); font-weight: 600; }
+
+    .about-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .info-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .info-item .label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .info-item .value {
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .info-item .value small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 400;
+      margin-top: 0.35rem;
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 0 24px rgba(124, 109, 240, 0.25);
+    }
+
+    .skill-card h3 {
+      font-size: 0.85rem;
+      font-family: 'Space Mono', monospace;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      background: rgba(124, 109, 240, 0.12);
+      color: var(--accent2);
+      border: 1px solid rgba(124, 109, 240, 0.25);
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+      box-shadow: 0 0 24px rgba(124, 109, 240, 0.2);
+    }
+
+    .project-card h3 {
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 0.85rem;
+    }
+
+    .project-lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .lang-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .project-arrow {
+      color: var(--muted);
+      font-size: 1.2rem;
+      margin-top: 0.1rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover .project-arrow { color: var(--accent2); transform: translateX(4px); }
+
+    /* ── EXPERIENCE ── */
+    .experience-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .experience-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 24px rgba(124, 109, 240, 0.2);
+    }
+    
+    .experience-card .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .experience-card h3 {
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .experience-card .exp-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--accent2);
+      white-space: nowrap;
+    }
+
+    .experience-card .exp-role {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+      letter-spacing: 0.02em;
+    }
+
+    .experience-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .experience-card ul li {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .experience-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .experience-card ul li strong { color: var(--text); font-weight: 600; }
+
+    .exp-tools {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    /* Secondary / lighter-weight experience entries */
+    .experience-card.secondary {
+      padding: 1.25rem 1.5rem;
+      background: var(--bg2);
+    }
+
+    .experience-card.secondary h3 {
+      font-size: 0.95rem;
+    }
+
+    .experience-card.secondary .exp-role {
+      font-size: 0.8rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .exp-subheading {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin: 1.75rem 0 0.75rem;
+    }
+
+    /* ── ACHIEVEMENTS ── */
+    .achievements-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .achievement-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .achievement-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .achievement-icon {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent2);
+      background: rgba(124, 109, 240, 0.12);
+      border: 1px solid rgba(124, 109, 240, 0.25);
+      border-radius: 6px;
+      padding: 0.4rem 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .achievement-item p {
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    .achievement-item p span {
+      color: var(--muted);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      text-align: center;
+    }
+
+    #contact h2 { margin-bottom: 1rem; }
+
+    .contact-sub {
+      color: var(--muted);
+      max-width: 440px;
+      margin: 0 auto 2.5rem;
+      font-size: 1rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      font-family: 'Space Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .back-to-top {
+      color: var(--accent2);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      transition: color 0.2s;
+    }
+
+    .back-to-top:hover { color: var(--text); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      max-width: 900px;
+      margin: 0 auto;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+      .nav-links { gap: 1.2rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      h2 { font-size: 1.7rem; }
+      .project-card { grid-template-columns: 1fr; }
+      .experience-card .exp-header { flex-direction: column; }
+    }
+
+    /* ── FADE-IN ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#intro" class="nav-logo">SD.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="intro">
+    <img src="photo.png" alt="Soumyadip Dutta" class="profile-img" loading="lazy">
+    <h1 class="hero-name">Soumyadip<br><span>Dutta</span></h1>
+    <p class="hero-tag">Electrical Engineering · NIT Durgapur</p>
+    <p class="hero-tagline">
+      Digital design & embedded systems enthusiast — working across
+      RTL/FPGA design, embedded firmware, PCB layout, and simulation-driven
+      engineering.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Resume ↗</a>
+      <a href="https://github.com/Soumya-git17" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub ↗</a>
+    </div>
+    <div class="hero-scroll">
+      <span class="scroll-line"></span>
+      scroll to explore
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">01 / About</p>
+    <h2>Who I am</h2>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>
+          I'm <strong>Soumyadip Dutta</strong>, an Electrical Engineering undergraduate at
+          <strong>National Institute of Technology, Durgapur</strong>. I'm passionate about
+          building things that bridge the physical and digital worlds.
+        </p>
+        <p>
+          My work spans <strong>RTL & FPGA design</strong>, <strong>embedded systems</strong>,
+          <strong>PCB layout</strong>, <strong>multiphysics simulation</strong>, and I'm
+          currently exploring <strong>robotics with ROS2</strong>.
+          I enjoy tackling projects where hardware constraints meet algorithmic challenges.
+        </p>
+      </div>
+      <div class="about-info">
+        <div class="info-item">
+          <div class="label">Institute</div>
+          <div class="value">National Institute of Technology, Durgapur</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Degree</div>
+          <div class="value">B.Tech — Electrical Engineering</div>
+        </div>
+        <div class="info-item">
+          <div class="label">Focus Areas</div>
+          <div class="value">RTL / FPGA · Embedded Systems · PCB · Robotics · Simulation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <p class="section-label">02 / Education</p>
+    <h2>Education</h2>
+
+    <div class="about-info reveal">
+      <div class="info-item">
+        <div class="label">Bachelor of Technology</div>
+        <div class="value">
+          Electrical Engineering<br>
+          National Institute of Technology Durgapur<br>
+          2023 – 2027
+          <small>CGPA: 9.23 (through Semester 6)</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">03 / Skills</p>
+    <h2>What I work with</h2>
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <h3>Hardware Design</h3>
+        <div class="skill-tags">
+          <span class="tag">KiCad</span>
+          <span class="tag">Multisim</span>
+          <span class="tag">LTspice</span>
+          <span class="tag">Proteus</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>FPGA & HDL</h3>
+        <div class="skill-tags">
+          <span class="tag">Verilog</span>
+          <span class="tag">RTL Design</span>
+          <span class="tag">FSM Design</span>
+          <span class="tag">Vivado</span>
+          <span class="tag">Icarus</span>
+          <span class="tag">Testbench</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Embedded Systems</h3>
+        <div class="skill-tags">
+          <span class="tag">Embedded C</span>
+          <span class="tag">Arduino</span>
+          <span class="tag">ESP32</span>
+          <span class="tag">UART / SPI / I2C</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Programming & Robotics</h3>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">C</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">MATLAB</span>
+          <span class="tag">ROS2</span>
+          <span class="tag">Robotics</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Simulations</h3>
+        <div class="skill-tags">
+          <span class="tag">COMSOL Multiphysics</span>
+          <span class="tag">Simulink</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">04 / Projects</p>
+    <h2>Things I've built</h2>
+    <div class="projects-list reveal">
+
+      <a class="project-card" href="https://github.com/Soumya-git17/Pipelined-MIPS32-Processor-in-Verilog" target="_blank" rel="noopener noreferrer">
+        <div>
+          <h3>Pipelined MIPS32 Processor</h3>
+          <p>A 32-bit 5-stage pipelined MIPS processor featuring data forwarding, hazard detection, branching, jumps, and memory operations — fully implemented and verified in Verilog.</p>
+          <span class="project-lang"><span class="lang-dot"></span> Verilog</span>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Soumya-git17/Two-Product-Vending-Machine-in-Spartan-7-FPGA" target="_blank" rel="noopener noreferrer">
+        <div>
+          <h3>Two-Product Vending Machine — Spartan-7 FPGA</h3>
+          <p>RTL-based vending machine controller with FSM-driven control logic and modular datapath/control-unit architecture, verified via Verilog testbenches, synthesized in Xilinx Vivado, and deployed on Spartan-7 hardware with real-time I/O.</p>
+          <span class="project-lang"><span class="lang-dot"></span> Verilog</span>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Soumya-git17/QR-Code-Scanner-with-ESP32-CAM-Module-OpenCV" target="_blank" rel="noopener noreferrer">
+        <div>
+          <h3>Wireless QR Code Scanner — ESP32-CAM + OpenCV</h3>
+          <p>Real-time QR code detection system using ESP32-CAM for live video streaming and a Python/OpenCV script for decoding. Suitable for IoT, automation, and smart access control.</p>
+          <span class="project-lang"><span class="lang-dot"></span> C++ / Python</span>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Soumya-git17/Arduino-PCB-board-by-KiCAD" target="_blank" rel="noopener noreferrer">
+        <div>
+          <h3>Custom Arduino Uno PCB — KiCad</h3>
+          <p>Full PCB design of an Arduino-compatible board from schematic to layout using KiCad — including component placement, routing, and design rule checks.</p>
+          <span class="project-lang"><span class="lang-dot"></span> KiCad</span>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Soumya-git17/SVPWM-Inverter-using-Simulink" target="_blank" rel="noopener noreferrer">
+        <div>
+          <h3>SVPWM Three-Phase Inverter — MATLAB/Simulink</h3>
+          <p>Space Vector PWM for a three-phase voltage source inverter — Clarke transformation, sector detection, switching time calculation (T1, T2, T0), and gate signal generation, verified on a star-connected RL load.</p>
+          <span class="project-lang"><span class="lang-dot"></span> MATLAB / Simulink</span>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label">05 / Experience</p>
+    <h2>Work Experience</h2>
+    <div class="experience-card reveal">
+      <div class="exp-header">
+        <h3>Summer Research Intern — IIT (BHU) Varanasi</h3>
+        <span class="exp-date">May 2025 – June 2025</span>
+      </div>
+      <div class="exp-role">Simulation & Optimization of High Voltage Insulation in HTS Cables</div>
+      <ul>
+        <li>Completed a 7-week research internship under <strong>Prof. Arup Kumar Das</strong>.</li>
+        <li>Simulated electric field distribution in High Temperature Superconducting (HTS) cables using <strong>COMSOL Multiphysics</strong>.</li>
+        <li>Analyzed effects of butt gaps, voids, stress cone thickness, and insulation thickness on field stress.</li>
+        <li>Conducted partial discharge testing and thermal aging analysis on Kapton and PTFE insulation, optimizing insulation parameters to improve reliability of high-voltage HTS cable systems.</li>
+      </ul>
+      <div class="exp-tools">
+        <span class="tag">COMSOL Multiphysics</span>
+        <span class="tag">Python</span>
+      </div>
+    </div>
+
+    <p class="exp-subheading">Other Experience</p>
+    <div class="experience-card secondary reveal">
+      <div class="exp-header">
+        <h3>Vocational Trainee — Durgapur Steel Plant (SAIL)</h3>
+        <span class="exp-date">June 2026</span>
+      </div>
+      <div class="exp-role">12-Day Vocational Training in Steel Manufacturing Operations</div>
+      <ul>
+        <li>Completed 12 days of vocational training at <strong>Durgapur Steel Plant (SAIL)</strong> through guided plant visits and technical sessions.</li>
+        <li>Gained exposure to end-to-end steel manufacturing processes, including raw material handling, blast furnace operations, and steel melting.</li>
+        <li>Studied rolling mill operations and wheel & axle production processes.</li>
+        <li>Learned <strong>industrial safety practices</strong> followed across heavy manufacturing plant operations.</li>
+      </ul>
+      <div class="exp-tools">
+        <span class="tag">Industrial Safety</span>
+        <span class="tag">Steel Manufacturing</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <p class="section-label">06 / Achievements</p>
+    <h2>Academic Achievements</h2>
+    <div class="achievements-list reveal">
+      <div class="achievement-item">
+        <span class="achievement-icon">GATE</span>
+        <p>GATE 2026 (Electrical Engineering) — AIR 2309 <span>(Gate Score - 507)</span></p>
+      </div>
+      <div class="achievement-item">
+        <span class="achievement-icon">JEE</span>
+        <p>JEE Main — CRL 16327 <span>(98.60 percentile)</span></p>
+      </div>
+      <div class="achievement-item">
+        <span class="achievement-icon">NTSE</span>
+        <p>Reached National Level <span>(2nd Round), NTSE Exam 2021</span></p>
+      </div>
+      <div class="achievement-item">
+        <span class="achievement-icon">PUBDET</span>
+        <p>Rank 15 <span>— Presidency University Entrance Test (Mathematics)</span></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">07 / Contact</p>
+    <h2>Let's connect</h2>
+    <p class="contact-sub reveal">
+      I'm open to internships, jobs, collaborations, and interesting projects.
+      Feel free to reach out!
+    </p>
+    <div class="contact-links reveal">
+      <a href="https://github.com/Soumya-git17" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/soumyadip-dutta-a5561728a" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn ↗</a>
+      <a href="mailto:soumyadipdutta2004@gmail.com" class="btn btn-outline">Email me</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#intro" class="back-to-top">↑ BACK TO TOP</a>
+    <p>Designed & built by Soumyadip Dutta · 2026</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
